@@ -18,7 +18,7 @@ jobs:
       - name: Build and Push Docker Images
         run: |
           docker build -t dollu/the-alter-office-frontend .
-          docker push dollu/the-alter-office-backend:frontend
+          docker push dollu/the-alter-office-frontend:latest
 
   deploy:
     needs: build
