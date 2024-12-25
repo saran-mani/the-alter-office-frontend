@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2, h3, h4, h5 {
+    color: #2c3e50;
+  }
+  
+  /* Container Styles */
+  div {
+    margin: 20px;
+  }
+  
+  /* Alert Styling */
+  .alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* Topic Buttons Container */
+  .topics-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+  }
+  
+  /* Individual Topic Button */
+  .topic-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .topic-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .topic-button:active {
+    background-color: #1d6b8a;
+  }
+  
+  .topic-button:focus {
+    outline: none;
+  }
+  
+  /* Loading and Empty States */
+  .loading {
+    font-size: 16px;
+    color: #7f8c8d;
+  }
+  
+  .no-topics {
+    font-size: 18px;
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  /* Analytics Section */
+  h3 {
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  h4, h5 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #34495e;
+  }
+  
+  /* Analytics Data Formatting */
+  ul li p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  ul li a {
+    font-size: 14px;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .topics-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .topic-button {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+  

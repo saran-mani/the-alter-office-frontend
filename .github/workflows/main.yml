@@ -1,0 +1,41 @@
+name: CICD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" --password "${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Build and Push Docker Images
+        run: |
+          docker build -t dollu/the-alter-office-frontend .
+          docker push dollu/the-alter-office-backend:frontend
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Stop and Remove Old Containers
+        run: |
+          docker stop the-alter-office-frontend-container || true
+          docker rm the-alter-office-frontend-container || true
+
+      - name: Pull Latest Backend Image
+        run: |
+          docker pull dollu/the-alter-office-frontend:latest
+
+      - name: Run Backend Container
+        run: |
+          docker run -d -p 5173:6173 --name the-alter-office-frontnd-container \
+            -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} \
+            -e VITE_API_BASE_URL=${{ secrets.API_BASE_URL }} \
+            dollu/the-alter-office-frontend
