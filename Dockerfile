@@ -23,4 +23,4 @@ RUN npm install -g pm2
 EXPOSE 5173
 
 # Start the app using PM2 in production mode
-CMD ["pm2-runtime", "npm", "--", "start"]
+CMD ["pm2-runtime", "npm", "--", "run", "preview"]
